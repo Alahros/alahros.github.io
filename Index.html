@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alejandro | Portfolio</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #ac6903;
+    color: #ffffff;
+}
+
+header {
+    text-align: center;
+    padding: 60px 20px;
+    background: #b92222;
+}
+
+h1 { font-size: 3rem; }
+
+section {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.card {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+button {
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.lang-btn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="lang-btn">
+    <button onclick="setLang('en')">EN</button>
+    <button onclick="setLang('es')">ES</button>
+</div>
+
+<header>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+</header>
+
+<section>
+    <h2 id="projectsTitle"></h2>
+
+    <div class="card">
+        <h3 id="proj1Title"></h3>
+        <p id="proj1Desc"></p>
+    </div>
+
+    <div class="card">
+        <h3 id="proj2Title"></h3>
+        <p id="proj2Desc"></p>
+    </div>
+</section>
+
+<section>
+    <h2 id="aboutTitle"></h2>
+    <p id="aboutText"></p>
+</section>
+
+<section>
+    <h2 id="contactTitle"></h2>
+    <p>
+        <a href="https://github.com/yourusername">GitHub</a> |
+        <a href="https://www.artstation.com/alahros">ArtStation</a> |
+        <a href="https://alahros.itch.io/">Itch.io</a>
+    </p>
+</section>
+
+<script>
+const content = {
+    en: {
+        title: "Hi, I'm Alejandro",
+        subtitle: "2D Artist | Pixel Art | Unity Game Developer",
+        projectsTitle: "Projects",
+        proj1Title: "Game Jam Project",
+        proj1Desc: "2D game created for LAGS Game Jam. I worked as main 2D artist and animator.",
+        proj2Title: "Pixel Animation",
+        proj2Desc: "Animation inspired by Jujutsu Kaisen recreated in pixel art.",
+        aboutTitle: "About Me",
+        aboutText: "I'm a 2D artist and game developer focused on pixel art and animation.",
+        contactTitle: "Contact"
+    },
+
+    es: {
+        title: "Hola, soy Alejandro",
+        subtitle: "Artista 2D | Pixel Art | Desarrollador en Unity",
+        projectsTitle: "Proyectos",
+        proj1Title: "Proyecto Game Jam",
+        proj1Desc: "Juego 2D creado para LAGS Game Jam. Fui el artista 2D principal y animador.",
+        proj2Title: "Animación Pixel",
+        proj2Desc: "Animación inspirada en Jujutsu Kaisen recreada en pixel art.",
+        aboutTitle: "Sobre mí",
+        aboutText: "Soy un artista 2D y desarrollador enfocado en pixel art y animación.",
+        contactTitle: "Contacto"
+    }
+};
+
+function setLang(lang) {
+    document.getElementById("title").innerText = content[lang].title;
+    document.getElementById("subtitle").innerText = content[lang].subtitle;
+    document.getElementById("projectsTitle").innerText = content[lang].projectsTitle;
+    document.getElementById("proj1Title").innerText = content[lang].proj1Title;
+    document.getElementById("proj1Desc").innerText = content[lang].proj1Desc;
+    document.getElementById("proj2Title").innerText = content[lang].proj2Title;
+    document.getElementById("proj2Desc").innerText = content[lang].proj2Desc;
+    document.getElementById("aboutTitle").innerText = content[lang].aboutTitle;
+    document.getElementById("aboutText").innerText = content[lang].aboutText;
+    document.getElementById("contactTitle").innerText = content[lang].contactTitle;
+}
+
+// default language
+setLang('en');
+</script>
+
+</body>
+</html>
