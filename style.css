@@ -8,7 +8,6 @@
 
 .lang-switch img {
     width: 32px;
-    height: 32px;
     display: block;
     image-rendering: pixelated;
     transition: transform 0.1s;
@@ -21,6 +20,8 @@
 
 .lang-switch img:active {
     transform: scale(0.8) translateY(2px);
+    background: transparent;
+    border: 0;
 }
 
 
@@ -66,8 +67,11 @@ section {
     color : #000000;    
 }
 
-.lang-btn {
-    all: unset;
+
+
+button{
+    background: transparent;
+    border: 0;
     display: inline-block;
     cursor: pointer;
 }
