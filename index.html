@@ -12,49 +12,53 @@
 <body>
 
 <div class="lang-switch">
-    <img src="assets/lang/EnButtons3.png" onclick="setLang('en')" id="btn-en">
-    <img src="assets/lang/EsButtons3.png" onclick="setLang('es')" id="btn-es">
+    <button type="button" onclick="setLang('en')" id="btn-en" aria-label="Switch to English">
+        <img src="assets/lang/EnButtons3.png" alt="English">
+    </button>
+    <button type="button" onclick="setLang('es')" id="btn-es" aria-label="Cambiar a español">
+        <img src="assets/lang/EsButtons3.png" alt="Español">
+    </button>
 </div>
 
 <header>
-    <h1 id="title"></h1>
-    <p id="subtitle"></p>
+    <h1 id="title">Alejandro Ahumada</h1>
+    <p id="subtitle">2D Artist | Pixel Art | Unity Game Developer</p>
 </header>
 
 <section>
-    <h2 id="projectsTitle"></h2>
+    <h2 id="projectsTitle">Projects</h2>
 
     
     <div class="card project">
         <div class="project-text">
-            <h3 id="proj1Title"></h3>
-            <p id="proj1Desc"></p>
+            <h3 id="proj1Title">Mi Esmeralda</h3>
+            <p id="proj1Desc">2.5D videogame developed for LAGS Game Jam, where I worked as the main 2D artist, creating characters and props and animating them, with a strong focus on visual aesthetics.</p>
         </div>
 
-        <img src="assets/gifs/project1.gif" class="project-gif">
+        <img src="assets/gifs/project1.gif" class="project-gif" alt="Mi Esmeralda project animation">
     </div>
 
     
     <div class="card project">
         <div class="project-text">
-            <h3 id="proj2Title"></h3>
-            <p id="proj2Desc"></p>
+            <h3 id="proj2Title">Asteroid Energy</h3>
+            <p id="proj2Desc">Videogame developed for Limited Capacity Game Jam, where I worked as the main 2D artist, creating characters and props, animating them, and also handling character movement programming and Animator setup.</p>
         </div>
 
-        <img src="assets/gifs/project2.gif" class="project-gif">
+        <img src="assets/gifs/project2.gif" class="project-gif" alt="Asteroid Energy project animation">
     </div>
 
 </section>
 
 <section>
-    <h2 id="aboutTitles"></h2>
-    <p id="aboutText"></p>
+    <h2 id="aboutTitles">About Me</h2>
+    <p id="aboutText">I'm a 2D artist and game developer focused on pixel art and animation.</p>
 </section>
 
 <section>
-    <h2 id="contactTitle"></h2>
+    <h2 id="contactTitle">Contact</h2>
     <p>
-        <a href="https://github.com/yourusername">GitHub</a> |
+        <a href="https://github.com/Alahros">GitHub</a> |
         <a href="https://www.artstation.com/alahros">ArtStation</a> |
         <a href="https://alahros.itch.io/">Itch.io</a>
     </p>
