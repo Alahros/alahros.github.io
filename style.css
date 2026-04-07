@@ -23,15 +23,7 @@
     transform: scale(0.8) translateY(2px);
 }
 
-.lang-switch,
-.lang-switch .lang-btn,
-.lang-switch img {
-  background: transparent;
-  border: none;
-  padding: 0;
-  -webkit-appearance: none;
-  appearance: none;
-}
+
 
 
 @keyframes pixelBounce {
