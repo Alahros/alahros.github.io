@@ -113,3 +113,8 @@ button{
     background: #ff3b3b;
     transform: scale(1.05);
 }
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
