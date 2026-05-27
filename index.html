@@ -1,160 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alejandro Ahumada| Portfolio</title>
+    <meta name="description" content="Alejandro Ahumada — 2D Artist, Pixel Art and Unity Game Developer portfolio.">
+    <title>Alejandro Ahumada — Game Developer Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="lang-switch">
-    <button type="button" onclick="setLang('en')" id="btn-en" aria-label="Switch to English">
-        <img src="assets/lang/EnButtons3.png" alt="Eng">
+<!-- Language switcher -->
+<div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang="en" onclick="setLang('en')" aria-label="Switch to English">
+        <img src="assets/lang/EnButtons3.png" alt="EN">
     </button>
-    <button type="button" onclick="setLang('es')" id="btn-es" aria-label="Cambiar a español">
-        <img src="assets/lang/EsButtons3.png" alt="Esp">
+    <button type="button" data-lang="es" onclick="setLang('es')" aria-label="Cambiar a español">
+        <img src="assets/lang/EsButtons3.png" alt="ES">
     </button>
-
 </div>
 
+<!-- Top nav -->
 <nav class="navbar">
-    <a href="#projects" id="navProjects">Projects</a>
-    <a href="#about" id="navAbout">About</a>
-    <a href="#contact" id="navContact">Contact</a>
+    <a href="#home" class="brand">A.A<span class="cursor">_</span></a>
+    <div class="nav-links">
+        <a href="#projects" data-i18n="nav.projects">Projects</a>
+        <a href="#skills" data-i18n="nav.skills">Skills</a>
+        <a href="#experience" data-i18n="nav.experience">Experience</a>
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </div>
 </nav>
 
-<header>
-    <h1 id="title">Alejandro Ahumada</h1>
-    <p id="subtitle">2D Artist | Pixel Art | Unity Game Developer</p>
-    </header>
+<!-- Hero -->
+<header id="home" class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-inner">
+        <p class="hero-eyebrow" data-i18n="hero.subtitle">2D Artist · Pixel Art · Unity Game Developer</p>
+        <h1 class="hero-title">Alejandro Ahumada</h1>
+        <p class="hero-tagline" data-i18n="hero.tagline">I build worlds with pixels and code.</p>
 
-    <a href="assets/cv/Alejandro_Ahumada_CV.pdf" download class="cv-button">
-    Descargar CV
-</a>
+        <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary" data-i18n="hero.cta.projects">View Projects</a>
+            <a href="assets/cv/Alejandro_Ahumada_CV.pdf" download class="btn btn-ghost" data-i18n="hero.cta.cv">Download CV</a>
+        </div>
 
-<section id="projects">
-    <h2 id="projectsTitle">Projects</h2>
+        <ul class="hero-stack" aria-label="Tech stack">
+            <li>Unity</li>
+            <li>C#</li>
+            <li>Aseprite</li>
+            <li>Blender</li>
+            <li>Git</li>
+        </ul>
+    </div>
+</header>
 
-    <!-- 🎥 MAIN DISPLAY -->
-    <div class="project-viewer">
-        
-        <img id="projectMedia" src="assets/gifs/project1.gif" alt="Project preview">
+<!-- Stats -->
+<section class="stats" aria-label="Quick stats">
+    <div class="stat">
+        <span class="stat-value" data-stat="years">3+</span>
+        <span class="stat-label" data-i18n="stats.years.label">Years making games</span>
+    </div>
+    <div class="stat">
+        <span class="stat-value" data-stat="jams">3</span>
+        <span class="stat-label" data-i18n="stats.jams.label">Game jams shipped</span>
+    </div>
+    <div class="stat">
+        <span class="stat-value" data-stat="projects">3</span>
+        <span class="stat-label" data-i18n="stats.projects.label">Projects built</span>
+    </div>
+    <div class="stat">
+        <span class="stat-value" data-stat="roles">2</span>
+        <span class="stat-label" data-i18n="stats.roles.label">Hats worn (Art + Code)</span>
+    </div>
+</section>
 
-        <div class="project-info">
-            <h3 id="projectTitle">Mi Esmeralda</h3>
-            <p id="projectDesc">2.5D videogame developed for LAGS Game Jam, where I worked as the main 2D artist, creating characters and props and animating them, with a strong focus on visual aesthetics. </p>
+<!-- Projects (carousel) -->
+<section id="projects" class="projects">
+    <div class="section-head">
+        <h2 data-i18n="projects.title">Selected Projects</h2>
+        <p class="section-sub" data-i18n="projects.subtitle">Browse my recent work.</p>
+    </div>
+
+    <div class="carousel">
+        <button id="prevProject" class="carousel-arrow prev" type="button"
+                data-i18n-aria="projects.prev" aria-label="Previous project">‹</button>
+
+        <div class="carousel-stage">
+            <div id="projectMedia" class="project-media" aria-live="polite"></div>
+
+            <div class="project-info">
+                <div class="project-info-head">
+                    <h3 id="projectTitle">—</h3>
+                    <span id="projectYear" class="project-year"></span>
+                </div>
+                <p id="projectRole" class="project-role"></p>
+                <div id="projectTags" class="project-tags"></div>
+                <ul id="projectBullets" class="project-bullets"></ul>
+                <p id="projectDesc" class="project-desc"></p>
+                <div id="projectLinks" class="project-links"></div>
+            </div>
+        </div>
+
+        <button id="nextProject" class="carousel-arrow next" type="button"
+                data-i18n-aria="projects.next" aria-label="Next project">›</button>
+    </div>
+
+    <div id="thumbStrip" class="thumb-strip" role="tablist" aria-label="Projects"></div>
+</section>
+
+<!-- Skills -->
+<section id="skills" class="skills">
+    <div class="section-head">
+        <h2 data-i18n="skills.title">Skills &amp; Tools</h2>
+    </div>
+    <div class="skills-grid">
+        <div class="skill-card">
+            <h3 data-i18n="skills.engines">Engines</h3>
+            <ul><li>Unity</li><li>Godot (learning)</li></ul>
+        </div>
+        <div class="skill-card">
+            <h3 data-i18n="skills.languages">Languages</h3>
+            <ul><li>C#</li><li>JavaScript</li><li>HLSL (basics)</li></ul>
+        </div>
+        <div class="skill-card">
+            <h3 data-i18n="skills.art">Art &amp; Animation</h3>
+            <ul><li>Pixel Art (Aseprite)</li><li>2D Animation</li><li>Photoshop</li><li>Blender (3D basics)</li></ul>
+        </div>
+        <div class="skill-card">
+            <h3 data-i18n="skills.tools">Tools</h3>
+            <ul><li>Git / GitHub</li><li>Trello / Notion</li><li>Figma</li></ul>
         </div>
     </div>
+</section>
 
-    <!-- 🎮 NAVIGATION -->
-    <div class="project-nav">
-        <button onclick="setProject(0)">1</button>
-        <button onclick="setProject(1)">2</button>
-        <button onclick="setProject(2)">3</button>
+<!-- Experience -->
+<section id="experience" class="experience">
+    <div class="section-head">
+        <h2 data-i18n="experience.title">Experience</h2>
+    </div>
+    <ol class="timeline">
+        <li class="timeline-item">
+            <span class="timeline-dot"></span>
+            <h3 data-i18n="experience.item1.title">LAGS Game Jam — Mi Esmeralda</h3>
+            <p data-i18n="experience.item1.desc">Lead 2D Artist.</p>
+        </li>
+        <li class="timeline-item">
+            <span class="timeline-dot"></span>
+            <h3 data-i18n="experience.item2.title">Limited Capacity Game Jam — Asteroid Energy</h3>
+            <p data-i18n="experience.item2.desc">2D Artist + Programmer.</p>
+        </li>
+        <li class="timeline-item">
+            <span class="timeline-dot"></span>
+            <h3 data-i18n="experience.item3.title">Wrong Genre Game Jam</h3>
+            <p data-i18n="experience.item3.desc">Full 2D pipeline plus scripting.</p>
+        </li>
+        <li class="timeline-item">
+            <span class="timeline-dot"></span>
+            <h3 data-i18n="experience.item4.title">Personal Projects</h3>
+            <p data-i18n="experience.item4.desc">Pixel art studies and Unity prototypes.</p>
+        </li>
+    </ol>
+</section>
+
+<!-- About -->
+<section id="about" class="about">
+    <div class="section-head">
+        <h2 data-i18n="about.title">About Me</h2>
+    </div>
+    <div class="about-content">
+        <p data-i18n="about.p1">I'm Alejandro Ahumada…</p>
+        <p data-i18n="about.p2">Switching between art and code…</p>
+        <p data-i18n="about.p3">Open to collaborations…</p>
+        <p class="about-interests" data-i18n="about.interests">Outside work…</p>
     </div>
 </section>
 
-</section>
-
-<section id="about">
-    <h2 id="aboutTitles">About Me</h2>
-    <p id="aboutText">I'm a 2D artist and game developer focused on pixel art and animation.</p>
-</section>
-
-<section id="contact">
-    <h2 id="contactTitle">Contact</h2>
+<!-- Contact -->
+<section id="contact" class="contact">
+    <div class="section-head">
+        <h2 data-i18n="contact.title">Let's talk</h2>
+        <p class="section-sub" data-i18n="contact.subtitle">Open to indie collaborations.</p>
+    </div>
 
     <div class="contact-links">
-        
-        <a href="https://www.linkedin.com/in/alejandro-ahumada-alahros-unity-developer-pixel-artist/" target="_blank">
+        <a href="https://www.linkedin.com/in/alejandro-ahumada-alahros-unity-developer-pixel-artist/" target="_blank" rel="noopener" aria-label="LinkedIn">
             <img src="assets/icons/linkedin.png" alt="LinkedIn">
-            
         </a>
-        
-        <a href="https://www.artstation.com/alahros" target="_blank">
+        <a href="https://www.artstation.com/alahros" target="_blank" rel="noopener" aria-label="ArtStation">
             <img src="assets/icons/artstation.png" alt="ArtStation">
-            
         </a>
-        
-        <a href="https://alahros.itch.io/" target="_blank">
+        <a href="https://alahros.itch.io/" target="_blank" rel="noopener" aria-label="Itch.io">
             <img src="assets/icons/itch.png" alt="Itch.io">
-                  
         </a>
-
-        <a href="https://github.com/Alahros" target="_blank">
+        <a href="https://github.com/Alahros" target="_blank" rel="noopener" aria-label="GitHub">
             <img src="assets/icons/github.png" alt="GitHub">
-            
         </a>
-
     </div>
 
-    
-
-    
+    <a href="mailto:alejandro.ahumada@example.com" class="btn btn-primary contact-cta" data-i18n="contact.cta">Send me an email</a>
 </section>
 
+<footer class="footer">
+    <p data-i18n="footer.text">Built with HTML, CSS and a lot of pixels.</p>
+</footer>
 
-<script>
-const content = {
-    en: {
-        navProjects: "Projects",
-        navAbout: "About",
-        navContact: "Contact",
-        title: "Alejandro Ahumada",
-        subtitle: "2D Artist | Pixel Art | Unity Game Developer",
-        projectsTitle: "Projects",
-        projectTitle1: "Mi Esmeralda",
-        projectDesc1: "2.5D videogame developed for LAGS Game Jam, where I worked as the main 2D artist, creating characters and props and animating them, with a strong focus on visual aesthetics.",
-        proj2Title: "Asteroid Energy",
-        proj2Desc: "Videogame developed for Limited Capacity Game Jam, where I worked as the main 2D artist, creating characters and props, animating them, and also handling character movement programming and Animator setup.",
-        aboutTitle: "About Me",
-        aboutText: "I'm a 2D artist and game developer focused on pixel art and animation.",
-        contactTitle: "Contact"
-    },
-
-    es: {
-
-        navProjects: "Proyectos",
-        navAbout: "Sobre mí",
-        navContact: "Contacto",
-        title: "Alejandro Ahumada",
-        subtitle: "Artista 2D | Pixel Art | Desarrollador en Unity",
-        projectsTitle: "Proyectos",
-        projectTitle1: "Mi Esmeralda",
-        projectDesc1: "Juego desarrollado para la LAGS Game Jam, donde fui artista principal de personajes 2D y props, enfocado en la estética y animación.",
-        proj2Title: "Asteroid Energy",
-        proj2Desc: "Videojuego desarrollado para la Limited Capacity Game Jam, donde fui artista 2D principal, creando personajes, props, animaciones y trabajando también en programación del personaje y Animator.",
-        proj3Title: "What da fuq is wrong with my gun",
-        proj3Desc: "Videojuego desarrollado para la Wrong Genre Game Jam, donde fui artista 2D principal, creando personajes, props, animaciones y trabajando también en programación del personaje y Animator.",
-        
-        aboutTitle: "Sobre mí",
-        aboutText: "Soy un artista 2D y desarrollador enfocado en pixel art y animación.",
-        contactTitle: "Contacto"
-    }
-};
-
-function setLang(lang) {
-    document.getElementById("title").innerText = content[lang].title;
-    document.getElementById("subtitle").innerText = content[lang].subtitle;
-    document.getElementById("projectsTitle").innerText = content[lang].projectsTitle;
-    document.getElementById("projectTitle1").innerText = content[lang].projectTitle1;
-    document.getElementById("projectDesc1").innerText = content[lang].projectDesc1;
-    document.getElementById("proj2Title").innerText = content[lang].proj2Title;
-    document.getElementById("proj2Desc").innerText = content[lang].proj2Desc;
-    document.getElementById("aboutTitle").innerText = content[lang].aboutTitle;
-    document.getElementById("aboutText").innerText = content[lang].aboutText;
-    document.getElementById("contactTitle").innerText = content[lang].contactTitle;
-    document.getElementById("navProjects").innerText = content[lang].navProjects;
-    document.getElementById("navAbout").innerText = content[lang].navAbout;
-    document.getElementById("navContact").innerText = content[lang].navContact;
-}
-
-setLang('en');
-</script>
-
+<script src="projects.js"></script>
+<script src="i18n.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
